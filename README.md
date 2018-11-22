@@ -12,10 +12,10 @@ Copiar arxius dins directori servidor web
 
 ## Demo
 
-http://localhost/mapa_delinquencial/
+http://localhost/mapa-delinquancial/
 
 
-![alt Visors](mapa_delinquencial.png)
+![alt Visors](mapa-delinquancial.png)
 
 ## License
 
