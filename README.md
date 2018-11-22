@@ -15,7 +15,7 @@ Copiar arxius dins directori servidor web
 http://localhost/mapa-delinquancial/
 
 
-![alt Visors](mapa-delinquancial.png)
+![alt Visors](mapa-delinquencial.png)
 
 ## License
 
