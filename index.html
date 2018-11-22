@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ca">
+<!--
+ *
+ * Desenvolupat per GEOSTART
+ * "Fet amb el millor gust possible"
+ * Institut Cartogràfic i Geològic de Catalunya (ICGC) Novembre 2018
+ * CC-BY 4.0
+ *
+ * http://betaportal.icgc.cat
+ * v 1.0.1 Febrer 2018
+ *
+-->
+
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46332195-11"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-46332195-11');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MXVMXGS');</script>
+	<!-- End Google Tag Manager -->
+	
+	<meta charset="UTF-8" />
+	<meta name="author" content="Institut Cartogràfic i Geològic de Catalunya" />
+	<meta property="fb:app_id" content="620717167980164" />
+	<meta property="og:title" content="Dades delinqüencials Catalunya" />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="https://visors.icgc.cat/mapa_delinquencial/mapa_delinquencial_cat.png" />
+	<meta property="og:image:type" content="image/png" />
+	<meta property="og:url" content="http://visors.icgc.cat/mapa_delinquencial/index.html" />
+	<meta property="og:description" content="Delinqüència Catalunya 2017" />
+	<meta name="description" content="Delinqüència Catalunya 2017" />
+	<meta name="robots" content="index,follow" />
+	<meta name="geo.region" content="ES-CT" />
+	<meta name="geo.placename" content="Barcelona" />
+	<meta name="geo.position" content="41.363892;2.186279" />
+	<meta name="language" content="ca" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel='stylesheet' href="vendors/css/mapbox-gl-js-v0.51.0/mapbox-gl.css" />
+	<link rel="stylesheet" href="vendors/bootstrap-4.1.3/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="vendors/css/font-awesome-4.7.0/font-awesome.min.css">
+	<link rel="stylesheet" href="vendors/css/geostats.css" />
+	<link rel="stylesheet" href="vendors/css/uislider-10.0.0/nouislider.min.css" />
+	<link rel="stylesheet" href="css/delictes.css">
+	<script src="js/geoestadistica.js"></script>
+	<script src="vendors/js/jquery-3.2.1.min.js"></script>
+	<script src="vendors/js/popper.min.js"></script>
+	<script src="vendors/bootstrap-4.1.3/js/bootstrap.min.js"></script>
+	<script src="vendors/js/Chart.bundle.min.js"></script>
+	<script src="vendors/js/jquery.hotkeys.js"></script>
+	<script src="vendors/js/geostats.min.js"></script>
+	<script src="vendors/js/url.min.js"></script>
+	<script src="js/colors-1.0.0.js"></script>
+	<script src="js/grafiques-1.0.0.js"></script>
+	<script src="vendors/js/chroma.min.js"></script>
+	<script src="vendors/js/wnumb-1.1.0/wNumb.js"></script>
+	<script src="vendors/js/uislider-10.0.0/nouislider.min.js"></script>
+	<script src='vendors/js/mapbox-gl-js-v0.51.0/mapbox-gl.js'></script>
+	<script src="js/cercallocs-1.0.0.js"></script>
+	<title>Dades delinqüencials Catalunya</title>
+	<script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Website",
+            "url": "https://visors.icgc.cat/mapa_delinquencial",
+            "name": "Dades delinqüencials Catalunya",
+            "image": "https://visors.icgc.cat/mapa_delinquencial/mapa_delinquencial_cat.png",
+            "author": "Institut Cartogràfic i Geològic de Catalunya",
+            "description": "Dades delinqüencials Catalunya"
+        }
+    </script>
+</head>
+
+<body>
+	<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MXVMXGS"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	
+	<div id="div_panel">
+		<div id="titol">
+			<div id="burguer-menu-icon" class="fa fa-chevron-circle-up" aria-hidden="true">
+			</div>
+			<span class="panel-header-title">
+				<div id="title">Mapa delinqüencial
+					<a href="https://mossos.gencat.cat/ca/els_mossos_desquadra/indicadors_i_qualitat/dades_obertes/" target="_blank">
+						<i style="color: #f8f9fa;" class="fa fa-info-circle" aria-hidden="true"></i>
+					</a>
+				</div>
+				<!--
+				<div id="subtitle">Visualització i anàlisi</div>
+				-->
+			</span>
+		</div>
+		<div id="div_panel_body">
+			<div class="panel-content">
+				<ul class="panel-list">
+
+					<li class="panel-list-item">
+						<div class="panel-item-ull">
+							<div class="div_gr1_estils">
+								<fieldset>
+									<legend>Títol Codi Penal:</legend>
+									<div class="form-group ">
+										<select data-live-search="true" class="cmb" id="sel_codi_penal">
+										</select>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+					</li>
+					<li class="panel-list-item">
+						<div class="panel-item-ull">
+							<div class="div_gr1_estils">
+								<fieldset>
+									<legend>Tipus de fet:</legend>
+									<div class="form-group ">
+										<select data-live-search="true" class="cmb" id="sel_tipus_fet">
+										</select>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+					</li>
+
+					<li class="panel-list-item">
+						<div class="panel-item-ull">
+							<fieldset>
+								<legend>Any:</legend>
+								<div class="panel-item-ull2">
+									<div id="slider"></div>
+								</div>
+							</fieldset>
+					</li>
+
+					<li class="panel-list-item">
+						<div class="panel-item-ull3">
+							<div class="dropdown">
+								<button class="btn btn-orange dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+								 aria-haspopup="true" aria-expanded="false">
+									<i id="i_square" class="fa fa-square"></i>
+								</button>
+								<div class="dropdown-menu" id="div_colors_palette" aria-labelledby="dropdownMenuButton">
+
+									<div id="ramps"></div>
+
+								</div>
+							</div>
+							<div class="btn-group trampota">
+								<button type="button" title="Veure mapa 3D" id="bt_3d" class="btn btn-orange btn-xs">
+									<i style="font-size:0.85em" id="i_3d">
+										<b>3D</b>
+									</i>
+								</button>
+
+								<button type="button" title="Veure comissaries" id="bt_comissaries" class="btn btn-orange btn-xs">
+									<i id="i_chart" class="fa fa-dot-circle-o blanc"></i>
+
+								</button>
+							</div>
+						</div>
+
+					</li>
+					<li class="panel-list-item">
+						<div class="panel-item-ull">
+							<div id="div_capcalera"> </div>
+							<fieldset>
+								<legend id="lg_legend">
+									<b>Nombre de casos per àrea policial</b>:</legend>
+								<div id="taula_dades"></div>
+							</fieldset>
+						</div>
+					</li>
+					<li class="panel-list-item">
+						<div class="panel-item-ull">
+
+							<fieldset>
+								<legend id="lg_legend">
+									<b>Nombre de casos per mesos de l'any</b>:</legend>
+								<div style="width:100%">
+									<canvas style="width:100%;height:250px" id="canvas"></canvas>
+								</div>
+							</fieldset>
+						</div>
+					</li>
+					<li>
+						<div class="panel-footer">
+							<div class="panel-item-ull">
+								<div class="text_footer">
+									<p>Desenvolupada per
+										<a target="_blank" title="Institut Cartogràfic i Geològic de Catalunya" href="http://www.icgc.cat">ICGC</a>
+									</p>
+									<p>
+										Font dades:
+										<a href='https://mossos.gencat.cat' target='_blank'>Mossos d'Esquadra</a>
+									</p>
+								</div>
+
+
+								<div class="div_gr33_estils">
+									<div class="div_github">
+										<a style="color:white" href='https://github.com/OpenICGC/' target='_blank'>GitHub
+											<i style="font-size:17px" class=" blanc fa fa-github"></i>
+										</a>
+									</div>
+
+									<div class="div_dataset">
+										<a href='https://mossos.gencat.cat/ca/els_mossos_desquadra/indicadors_i_qualitat/dades_obertes/cataleg_dades_obertes/dades-delinqueencials/'
+										 target='_blank'>Dades
+											<i style="font-size:17px" class=" fa fa-database"></i>
+										</a>
+									</div>
+
+									<div class="social_in" id="social">
+										<a href="https://twitter.com/share" class="twitter-share-button" {count} data-text="Dades delinqüencials Catalunya"
+										 data-via="ICGCGeostarters" data-hashtags="Catalunya, Delictes, MapaDelinquencial">Tweet</a>
+										<script>
+											! function (d, s, id) {
+												var js, fjs = d.getElementsByTagName(s)[0],
+													p = /^http:/.test(d.location) ? 'http' : 'https';
+												if (!d.getElementById(id)) {
+													js = d.createElement(s);
+													js.id = id;
+													js.src = p + '://platform.twitter.com/widgets.js';
+													fjs.parentNode.insertBefore(js, fjs);
+												}
+											}(document, 'script', 'twitter-wjs');
+										</script>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+	</div>
+
+	<div id="cover"></div>
+	<div id='features'></div>
+	<div id="logos">
+		<a target="_blank" title="Institut Cartogràfic i Geològic de Catalunya" href="https://www.icgc.cat" class="logo_footer">
+			<img height="45" src="css/images/icgc.png">
+		</a>
+	</div>
+
+	<div id='map'></div>
+	<div id='barraEines' class="mapboxgl-ctrl-group mapboxgl-ctrl">
+		<button id="bt_capture" title="Capturar mapa" class="mapboxgl-ctrl-icon fa fa-camera"></button>
+		<button id="bt_vincle" title="Enllaçar mapa" class="mapboxgl-ctrl-icon fa fa-link"></button>
+	</div>
+	<div class='map-overlay' id='legend'>
+		<div id='h_legend_header'> </div>
+		<div id='h_legend'></div>
+	</div>
+	<!-- Modal Print -->
+	<div class="modal fade" id="md_print" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<h5 class="modal-title" id="myModalLabel">Capturar mapa</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+
+				</div>
+				<div class="modal-body">
+					<form onsubmit="return false;" id="config">
+						<fieldset id="config-fields">
+							<div class="row">
+								<div class="col-sm-5">
+									<div class="form-group">
+										<label>Unitats</label>
+										<br>
+										<label class="radio-inline">
+											<input type="radio" name="unitOptions" value="mm" id="mmUnit" checked> Mil·límetres
+										</label>
+										<label class="radio-inline">
+											<input type="radio" name="unitOptions" value="in" id="inUnit"> Polzades
+										</label>
+
+									</div>
+								</div>
+								<div class="col-sm-5">
+									<div class="form-group">
+										<label>Format</label>
+										<br>
+										<label class="radio-inline">
+											<input type="radio" name="outputOptions" value="png" checked> PNG
+										</label>
+										<label class="radio-inline">
+											<input type="radio" name="outputOptions" value="pdf"> PDF
+										</label>
+									</div>
+								</div>
+
+							</div>
+							<div class="row">
+								<div class="col-sm-4">
+									<div class="form-group" id="widthGroup">
+										<label for="widthInput">Amplada</label>
+										<input type="text" class="form-control" id="widthInput" autocomplete="off" value="280">
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="form-group" id="heightGroup">
+										<label for="heightInput">Alçada</label>
+										<input type="text" class="form-control" id="heightInput" autocomplete="off" value="200">
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="form-group" id="dpiGroup">
+										<label for="dpiInput">DPI</label>
+										<input type="text" class="form-control" id="dpiInput" autocomplete="off" value="300">
+									</div>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+					<div class="alert alert-danger" role="alert" id="error-message"></div>
+
+					<div class="row">
+						<div class="col-sm-12">
+							<button type="submit" class="btn btn-success" id="generate-btn">Capturar mapa</button>
+							<div id="spinner"></div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div id="enllacamodal" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="myModalLabel">Enllaçar mapa</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="urlMap">
+							<span lang="ca">Per enllaçar amb aquest mapa, copieu i enganxeu el següent text</span>:</label>
+						<input class="form-control" id="urlMap" type="text">
+					</div>
+					<div class="form-group">
+						<label for="iframeMap">
+							<span lang="ca">Per inserir aquest mapa al vostre web, copieu i enganxeu el següent text</span>:</label>
+						<textarea class="form-control" rows="3" id="iframeMap"></textarea>
+					</div>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+
+
+
+
+	<div id="alertmodal" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body alertmodal-body">
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+
+	<script type="text/javascript" src="vendors/js/canvas-toBlob.min.js"></script>
+	<script type="text/javascript" src="vendors/js/FileSaver.min.js"></script>
+	<script type="text/javascript" src="vendors/js/jspdf.min.js"></script>
+	<script src="js/delictes.js"></script>
+	<script src="js/functions_print.js"></script>
+	
+	<script src="visors.icgc.analytics.js"></script>
+	
+
+
+
+</body>
+
+</html>
