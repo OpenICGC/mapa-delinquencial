@@ -12,10 +12,16 @@ Copiar arxius dins directori servidor web
 
 ## Demo
 
-http://localhost/mapa-delinquancial/
+http://betaserver.icgc.cat/mapa-delinquencial
+
+
+![GitHub Release](release-v.1.1.0-blue.png)
 
 
 ![alt Visors](mapa-delinquencial.png)
 
 ## License
+
+2019- ICGC (MIT License)  
+See LICENSE file for more info.
 
