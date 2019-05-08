@@ -333,7 +333,7 @@ input:checked+.slider:before {
   color: #f8f9fa
 }
 #logos {
-  bottom: 61px;
+  bottom: 5px;
   cursor: pointer;
   height: 46px;
   opacity: 0.8;
