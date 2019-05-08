@@ -9,7 +9,7 @@ var arrayUniqueKeyMesosAnyCurrent;
 var arrayFromSearchQuery;
 var recordeSetCatalunya;
 var _classSelected = 'selected';
-var anysDades = [2011, 2012, 2013, 2014, 2015, 2016, 2017,2018];
+var anysDades = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018];
 var numRangs = 6;
 var initNumRangs = 6;
 var id_abp_3D = "arees_basiques_policia_3d";
@@ -79,7 +79,7 @@ $(document).ready(function () {
       success: function (data) {
 
         processData(data, init);
-        $('#cover').fadeOut(100);
+
         _Any = any;
         $('#spn_any').html("(" + _Any + ")");
 
@@ -97,8 +97,10 @@ $(document).ready(function () {
       if (init == 0) {
         addHTML();
         addMap();
+
       } else if (init == 1) {
         updateTematicByTipusFet($('#sel_tipus_fet').val());
+        $('#cover').fadeOut(100);
 
       }
 
@@ -130,8 +132,9 @@ $(document).ready(function () {
       bearing: arrayXYZPB[4],
       style: 'https://tilemaps.icgc.cat/tileserver/styles/water.json',
       zoom: arrayXYZPB[2],
-      attributionControl:false}).addControl(new mapboxgl.AttributionControl({
-        compact: true
+      attributionControl: false
+    }).addControl(new mapboxgl.AttributionControl({
+      compact: true
     }));
 
 
@@ -177,10 +180,7 @@ $(document).ready(function () {
         "source": "abd_source",
         "source-layer": "Arees_Basiques_Policia",
         "interactive": true,
-        "transition": {
-          "duration": 2600,
-          "delay": 0
-        },
+
         "type": "fill",
         "layout": {
           "visibility": "visible"
@@ -196,17 +196,14 @@ $(document).ready(function () {
             0.3
           ]
         }
-      },"place-town");
+      }, "place-town");
 
       map.addLayer({
         "id": id_abp_2D_lin,
         "source": "abd_source",
         "source-layer": "Arees_Basiques_Policia",
         "interactive": true,
-        "transition": {
-          "duration": 2600,
-          "delay": 0
-        },
+
         "type": "line",
         "layout": {
           "visibility": "visible"
@@ -214,17 +211,14 @@ $(document).ready(function () {
         "paint": {
           "line-color": "#ffffff"
         }
-      },"place-town");
+      }, "place-town");
 
       map.addLayer({
         "id": id_abp_2D_lin_selected,
         "source": "abd_source",
         "source-layer": "Arees_Basiques_Policia",
         "interactive": true,
-        "transition": {
-          "duration": 2600,
-          "delay": 0
-        },
+
         "type": "line",
         "layout": {
           "visibility": "visible"
@@ -234,7 +228,7 @@ $(document).ready(function () {
           "line-width": 3
         },
         "filter": ["in", "abp", ""]
-      },"place-town");
+      }, "place-town");
 
 
       map.addLayer({
@@ -242,17 +236,14 @@ $(document).ready(function () {
         "source": "abd_source",
         "source-layer": "Arees_Basiques_Policia",
         "interactive": true,
-        "transition": {
-          "duration": 2600,
-          "delay": 0
-        },
+
         "type": "fill-extrusion",
         "layout": {
           "visibility": "none"
         },
         "paint": {
           "fill-extrusion-color": "#FFCC00",
-		  "fill-extrusion-opacity": 0.8,
+          "fill-extrusion-opacity": 0.8,
           "fill-extrusion-height": [
             "interpolate", ["exponential", 50],
             ["zoom"],
@@ -262,7 +253,7 @@ $(document).ready(function () {
             0.3
           ]
         }
-      },"place-town");
+      }, "place-town");
 
       addComissaries();
 
@@ -306,7 +297,7 @@ $(document).ready(function () {
           data: comissariesGEOJSON
         });
 
-
+        $('#cover').fadeOut(100);
         map.addLayer({
           "id": _comissaries_point,
           "type": "circle",
@@ -538,12 +529,12 @@ $(document).ready(function () {
       $('#burguer-menu-icon').addClass('fa-chevron-circle-up');
       $('.social_in').hide();
       $('.social_out').show();
-     $('#titol').css('width', '100%');
-    // $('#div_panel_body').show();
+      $('#titol').css('width', '100%');
+      // $('#div_panel_body').show();
       if ($(document).width() < 700 || $(document).height() < 700) {
         $('#div_panel').css('height', '99%');
       } else {
-       $('#div_panel').css('height', '93%');
+        $('#div_panel').css('height', '93%');
       }
     } else {
 
@@ -553,10 +544,10 @@ $(document).ready(function () {
       $('.social_in').show();
       $('#titol').css('width', '100%');
       $('#div_panel').css('height', '58px');
-     // $('#div_panel_body').hide();
+      // $('#div_panel_body').hide();
     }
     $('.map-overlay').toggle();
-   
+
     $('.panel-footer').toggle();
 
   }
@@ -601,7 +592,7 @@ $(document).ready(function () {
   }
 
   function updateSelTipusFet(valueTipusCodiPenal) {
-    var _up = insertValuesFromQuery(diccionari.Titol_Codi_Penal, valueTipusCodiPenal, diccionari.Tipus_de_Fet, '#sel_tipus_fet', delictes_Array, );
+    var _up = insertValuesFromQuery(diccionari.Titol_Codi_Penal, valueTipusCodiPenal, diccionari.Tipus_de_Fet, '#sel_tipus_fet', delictes_Array);
     if (_up) {
       updateTematicByTipusFet($('#sel_tipus_fet').val());
     }
