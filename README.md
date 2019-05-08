@@ -12,7 +12,7 @@ Copiar arxius dins directori servidor web
 
 ## Demo
 
-http://betaserver.icgc.cat/mapa-delinquencial
+https://visors.icgc.cat/mapa-delinquencial
 
 
 ![GitHub Release](release-v.1.1.0-blue.png)
