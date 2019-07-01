@@ -493,7 +493,7 @@ $(document).ready(function () {
               "&FILTERS=" + arrayFilters[0] + "," + arrayFilters[1] + "&";
 
               */
-      var currentURL = "http://" + $.url('hostname') + $.url('path');
+      var currentURL = "https://" + $.url('hostname') + $.url('path');
 
       $('#urlMap').val(currentURL);
       var iframecode = '<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' + currentURL + '" ></iframe>';
