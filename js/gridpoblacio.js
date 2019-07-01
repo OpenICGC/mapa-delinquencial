@@ -633,7 +633,7 @@ $(document).ready(function () {
       var currentURL = "http://" + $.url('hostname') + $.url('path') + params;
 
       $('#urlMap').val(currentURL);
-      var iframecode = '<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' + currentURL + '" ></iframe>';
+      var iframecode = '<div style="height: 75vh; width: 100%; margin: auto;"><iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' + currentURL + '" ></iframe></div>';
       $('#iframeMap').html(iframecode);
       $('#enllacamodal').modal('show');
     });
