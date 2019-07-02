@@ -903,7 +903,7 @@ tr:nth-child(even) {
   right: 10px;
   top: 142px;
   width: 30px;
-  z-index: 100;
+  z-index: 40;
 }
 
 #error-message {
