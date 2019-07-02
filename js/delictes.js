@@ -9,7 +9,7 @@ var arrayUniqueKeyMesosAnyCurrent;
 var arrayFromSearchQuery;
 var recordeSetCatalunya;
 var _classSelected = 'selected';
-var anysDades = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018];
+var anysDades = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018,2019];
 var numRangs = 6;
 var initNumRangs = 6;
 var id_abp_3D = "arees_basiques_policia_3d";
@@ -28,7 +28,7 @@ var radius = initialRadius;
 var maxRadius = 18;
 var popup;
 var text_legend = "Nombre de casos: "
-var _Any = 2018;
+var _Any = 2019;
 var colorSel = "#00fff6";
 
 
