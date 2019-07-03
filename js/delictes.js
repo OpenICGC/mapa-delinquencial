@@ -168,7 +168,7 @@ $(document).ready(function () {
         "description": "Delictes 2012",
         "format": "pbf",
         "maxzoom": 16,
-        "minzoom": 6,
+        "minzoom": 3,
         "tiles": ["https://tilemaps.icgc.cat/tileserver/tileserver.php/arees_basiques_policia.v4/{z}/{x}/{y}.pbf"],
         "vector_layers": [{
           "id": "Arees_Basiques_Policia"
