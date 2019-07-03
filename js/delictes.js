@@ -663,6 +663,7 @@ $(document).ready(function () {
       $('#spn_any').text("(" + _Any + ")");
       updateLegendSVG(estilCurrent.legend_color, estilCurrent.legend_rangs, estilCurrent.titol, '#taula_dades', numRangs);
       updateLegendSVG(estilCurrent.legend_color, estilCurrent.legend_rangs, estilCurrent.titol, '#h_legend', numRangs);
+      $('#span_sum').html('(Total '+estilCurrent.sum+')');
       // map.setFilter(id_abp_2D_lin_selected, ['in', 'abp', ""]);
       //selected_feature = null;
 
