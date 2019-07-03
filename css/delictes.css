@@ -1061,7 +1061,10 @@ cm-small {
   float: left;
 }
 
-
+#span_sum{
+  font-size: 0.9em;
+  float: right;
+}
 
 #div_capcalera {
   padding-top: 10px;
@@ -1072,7 +1075,7 @@ cm-small {
   color: black;
   margin-bottom: 8px;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 0.9em;
   width: 100%;
   /*
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;

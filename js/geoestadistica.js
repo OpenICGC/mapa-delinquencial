@@ -17,6 +17,24 @@ function getGEOJSONArray(geojson, positions, clau) {
 
 }
 
+function addCommasFormated(nStr) {
+    try{
+    nStr += '';
+    nStr = nStr.replace(".", ",");
+
+    x = nStr.split(',');
+    x1 = x[0];
+    x2 = x.length > 1 ? ',' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+      x1 = x1.replace(rgx, '$1' + '.' + '$2');
+    }
+    return x1 + x2;
+}catch(err){
+    return nStr;
+}
+
+  }
 
 function ckeckAQArrays(array1, array2) {
     var common = $.grep(array1, function (element) {
@@ -89,7 +107,7 @@ function getRamdomColorFromArray() {
     return colors[Math.floor(Math.random() * colors.length)];
 }
 
-//getColumFromGEOJSON(keyField.GeoJSON,GeoJSON)
+
 function getColumFromGEOJSON(keyField, GeoJSON) {
     var items = [];
     $.each(GeoJSON.features, function (key, val) {
@@ -145,6 +163,7 @@ function getColumFromCSV(numColum, forceNumber, dataCSV) {
 function getUniqueValuesfromFilter(numKeyColum, forceNumberKeyColum, dataCSV) {
     var estatsKeyColum = new geostats(getColumFromCSV(numKeyColum, forceNumberKeyColum, dataCSV));
     var itemKeyColum = estatsKeyColum.getClassUniqueValues();
+   
     return itemKeyColum;
 
 }
@@ -250,7 +269,7 @@ function updateLegend(legend, textTitol, HTML_ID) {
 function getGenerateStyle(recordset, numRangs, arrayColors, factorH) {
 
 
-    //var _numRangs = recordset.estadistica.getClassQuantile(numRangs);
+
     var _numRangs = recordset.estadistica.getClassJenks(numRangs);
 
     if (numRangs < initNumRangs) {
@@ -291,7 +310,8 @@ function getGenerateStyle(recordset, numRangs, arrayColors, factorH) {
         'legend': recordset.estadistica.getHtmlLegend(),
         'titol': recordset.titol,
         'legend_color': recordset.estadistica.colors,
-        'legend_rangs': recordset.estadistica.bounds
+        'legend_rangs': recordset.estadistica.bounds,
+        'sum':addCommasFormated(recordset.estadistica.sum())
     };
 
 }
